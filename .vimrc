@@ -41,7 +41,11 @@ set softtabstop=4
 set expandtab       "use space instead of tab
 set autoindent
 set smartindent
-au FileType Makefile set noexpandtab    "disable tab replacement on Makefile
+
+filetype on
+filetype indent on
+filetype plugin on
+autocmd FileType Makefile set noexpandtab    "disable tab replacement on Makefile
 
 "
 " search
@@ -124,7 +128,13 @@ vnoremap < <gv
 vnoremap > >gv
 
 "
-" php auto-complete
+" python
+"
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+
+"
+" php
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 

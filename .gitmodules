@@ -4,3 +4,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab
+[submodule "bundle/pydiction"]
+	path = bundle/pydiction
+	url = https://github.com/vim-scripts/Pydiction.git
