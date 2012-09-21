@@ -8,6 +8,7 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+
 "
 " basic
 "
@@ -18,6 +19,7 @@ set nomodeline      "ignore mode implication
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
 
 autocmd! bufwritepost .vimrc source ~/.vimrc " auto reload vimrc when editing it
+
 
 "
 " encoding / format
@@ -31,6 +33,7 @@ else
 endif
 set fileformats=unix,dos,mac    "read variant
 set fileformat=unix             "write unix
+
 
 "
 " indent
@@ -47,12 +50,14 @@ filetype indent on
 filetype plugin on
 autocmd FileType Makefile set noexpandtab    "disable tab replacement on Makefile
 
+
 "
 " search
 "
 set incsearch       "highlight while typing
 set hlsearch        "highlight search result
 set smartcase       "ignore case if search pattern is all lowercase,case-sensitive otherwise
+
 
 "
 " theme / color / syntax
@@ -61,6 +66,7 @@ set background=dark
 syntax on
 colorscheme torte
 "set t_Co=256
+
 
 "
 " markup
@@ -87,11 +93,13 @@ function! HasPaste()
     endif
 endfunction
 
+
 "
 " sudo write command
 "
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! Wq :execute ':W' | :q
+
 
 "
 " key mappings
@@ -127,14 +135,12 @@ imap <F9> <c-o>:set hls!<BAR>set hls?<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+
 "
-" python
-"
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
-" python.vim: syntax highlight
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 " Taglist variables
+" (require exuberant-ctags: http://ctags.sourceforge.net/
+"  use 'sudo apt-get install exuberant-ctags' to install)
+"
 let g:ctags_statusline=1        " Display function name in status bar
 let generate_tags=1             " Automatically start script
 let Tlist_Use_Horiz_Window=0    " Displays taglist results in a vertical window
@@ -146,10 +152,21 @@ let Tlist_File_Fold_Auto_Close = 1
 nnoremap TT :TlistToggle<CR>    
 map <F4> :TlistToggle<CR>
 
+
+"
+" python
+"
+" python.vim: syntax highlight
+autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+
+
 "
 " php
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
 
 "
 " set screen title
