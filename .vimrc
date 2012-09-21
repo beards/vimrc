@@ -128,8 +128,8 @@ map <F3> n
 map <s-F3> N
 imap <F3> <c-o>n
 imap <s-F3> <c-o>N
-map <F9> :set hls!<BAR>set hls?<CR>
-imap <F9> <c-o>:set hls!<BAR>set hls?<CR>
+map <F4> :set hls!<BAR>set hls?<CR>
+imap <F4> <c-o>:set hls!<BAR>set hls?<CR>
 
 " allow multiple indentation/deindentation in visual mode
 vnoremap < <gv
@@ -150,7 +150,8 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_File_Fold_Auto_Close = 1
 nnoremap TT :TlistToggle<CR>    
-map <F4> :TlistToggle<CR>
+map <F5> :TlistToggle<CR>
+imap <F5> <c-o>:TlistToggle<CR>
 
 
 "
