@@ -110,6 +110,29 @@ set <F3>=[13~
 set <F4>=[14~
 let mapleader=","
 
+" help
+nnoremap <silent> <F1> :call Help()<CR>
+imap <F1> <Esc><F1>
+
+let g:last_help_keyword = ''
+function! Help()
+  echo match(expand("<cWORD>"), g:last_help_keyword)
+  if &buftype=="help" && match(expand("<cWORD>"), g:last_help_keyword)>0
+    bw
+  else
+    try
+      let g:last_help_keyword=expand("<cWORD>")
+      exec "help ".g:last_help_keyword
+    catch /:E149:\|:E661:/
+      " E149 no help for <subject>
+      " E661 no <language> help for <subject>
+      let g:last_help_keyword=expand("<cword>")
+      exec "help ".expand("<cword>")
+    endtry
+  endif
+endfunc
+
+
 " for splits
 map <C-J> <C-W>j
 map <C-K> <C-W>k
