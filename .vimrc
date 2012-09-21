@@ -159,6 +159,10 @@ imap <F5> <c-o>:TlistToggle<CR>
 "
 " python.vim: syntax highlight
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+" python doc
+autocmd FileType python map <F1> K
+autocmd FileType python imap <F1> <ESC>K
+" auto complete
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 
