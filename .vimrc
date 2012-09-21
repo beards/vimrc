@@ -132,6 +132,8 @@ vnoremap > >gv
 "
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+" python.vim: syntax highlight
+autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 
 "
 " php
