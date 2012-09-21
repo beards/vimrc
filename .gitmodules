@@ -7,3 +7,6 @@
 [submodule "bundle/pydiction"]
 	path = bundle/pydiction
 	url = https://github.com/vim-scripts/Pydiction.git
+[submodule "bundle/pep8-indent"]
+	path = bundle/pep8-indent
+	url = https://github.com/hynek/vim-python-pep8-indent.git
