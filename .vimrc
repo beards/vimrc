@@ -219,6 +219,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " php
 "
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set foldmethod=syntax
+let php_folding=2
 
 
 "
