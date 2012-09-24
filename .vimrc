@@ -52,6 +52,14 @@ autocmd FileType Makefile set noexpandtab    "disable tab replacement on Makefil
 
 
 "
+" folding
+"
+set foldmethod=indent
+set foldlevel=3
+set foldnestmax=3
+
+
+"
 " search
 "
 set incsearch       "highlight while typing
