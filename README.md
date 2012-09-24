@@ -5,16 +5,13 @@ INSTALL
 -------
 
 after clone please run:  
-
     `git submodule init`  
     `git submodule update`  
 
 require 'exuberant-ctags' for plugin 'taglist':  
-
     `sudo apt-get install exuberant-ctags`  
 
 require 'flake8' for plugin 'vim-flake8':  
-
     `sudo pip install flake8`  
 
 
