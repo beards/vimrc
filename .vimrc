@@ -186,6 +186,13 @@ imap <F5> <c-o>:TlistToggle<CR>
 
 
 "
+" Nerd Tree
+"
+map <F8> :NERDTree<CR>
+imap <F8> <c-o>:NERDTree<CR>
+
+
+"
 " python
 "
 " python.vim: syntax highlight
