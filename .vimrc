@@ -197,9 +197,11 @@ imap <F8> <c-o>:NERDTree<CR>
 "
 " python.vim: syntax highlight
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-" python doc
+" help key mapping
 autocmd FileType python map <F1> K
 autocmd FileType python imap <F1> <ESC>K
+" flake8: ignore E501 line too long
+let g:flake8_ignore="E501"
 " auto complete
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
