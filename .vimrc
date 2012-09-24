@@ -203,8 +203,8 @@ autocmd FileType python imap <F1> <ESC>K
 " flake8: ignore E501 line too long
 let g:flake8_ignore="E501"
 " auto complete
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
 
 
 "
