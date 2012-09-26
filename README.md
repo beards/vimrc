@@ -20,6 +20,7 @@ PLUGINS
 
 * [pathogen](https://github.com/tpope/vim-pathogen.git): makes it super easy to install plugins and runtime files in their own private directories  
 * [supertab](https://github.com/ervandew/supertab): allows you to use <Tab> for all your insert completion needs  
+* [AutoComplPop](https://github.com/vim-scripts/AutoComplPop.git): automatically opens popup menu for completions
 * [taglist](https://github.com/vim-scripts/taglist.vim): provides an overview of the structure of source code  
 * [nerd Tree](https://github.com/scrooloose/nerdtree.git): allows you to explore your filesystem and to open files and directories  
 * [easy motion](https://github.com/Lokaltog/vim-easymotion.git): provides a much simpler way to use some motions in vim  
