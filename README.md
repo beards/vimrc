@@ -22,7 +22,9 @@ PLUGINS
 * [supertab](https://github.com/ervandew/supertab): allows you to use <Tab> for all your insert completion needs  
 * [AutoComplPop](https://github.com/vim-scripts/AutoComplPop.git): automatically opens popup menu for completions
 * [taglist](https://github.com/vim-scripts/taglist.vim): provides an overview of the structure of source code  
+    `<F11>` to open tag list panel  
 * [nerd Tree](https://github.com/scrooloose/nerdtree.git): allows you to explore your filesystem and to open files and directories  
+    `<F12>` to open file tree panel  
 * [easy motion](https://github.com/Lokaltog/vim-easymotion.git): provides a much simpler way to use some motions in vim  
     `,,w` forward easy motion  
     `,,b` backward easy motion  

@@ -128,7 +128,8 @@ let mapleader=","
 
 " help
 nnoremap <silent> <F1> :call Help()<CR>
-imap <F1> <Esc><F1>
+inoremap <silent> <F1> <Esc><F1>
+autocmd FileType help noremap <buffer> q :close<CR>
 
 let g:last_help_keyword = ''
 function! Help()
@@ -150,25 +151,25 @@ endfunc
 
 
 " for splits
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <c-h> <c-w>h
-map <c-l> <c-w>l
-map <F6> <c-w>w
-imap <F6> <c-o><c-w>w
+noremap <silent> <C-J> <C-W>j
+noremap <silent> <C-K> <C-W>k
+noremap <silent> <c-h> <c-w>h
+noremap <silent> <c-l> <c-w>l
+noremap <silent> <F6> <c-w>w
+inoremap <silent> <F6> <c-o><c-w>w
 
 " for mouse selection / paste
-map <F2> :set nu! paste!<CR>
+noremap <silent> <F2> :set nu! paste!<CR>
 set pastetoggle=<F2>
 
 " search next/previous
 set <s-F3>=[25~
-map <F3> n
-map <s-F3> N
-imap <F3> <c-o>n
-imap <s-F3> <c-o>N
-map <F4> :set hls!<BAR>set hls?<CR>
-imap <F4> <c-o>:set hls!<BAR>set hls?<CR>
+noremap <F3> n
+noremap <s-F3> N
+inoremap <F3> <c-o>n
+inoremap <s-F3> <c-o>N
+noremap <F4> :set hls!<BAR>set hls?<CR>
+inoremap <F4> <c-o>:set hls!<BAR>set hls?<CR>
 
 " allow multiple indentation/deindentation in visual mode
 vnoremap < <gv
@@ -188,16 +189,16 @@ let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_File_Fold_Auto_Close = 1
-nnoremap TT :TlistToggle<CR>    
-map <F5> :TlistToggle<CR>
-imap <F5> <c-o>:TlistToggle<CR>
+nnoremap <silent> <F11> :TlistToggle<CR>
+inoremap <silent> <F11> <c-o>:TlistToggle<CR>
 
 
 "
 " Nerd Tree
 "
-map <F8> :NERDTree<CR>
-imap <F8> <c-o>:NERDTree<CR>
+nnoremap <silent> <F12> :NERDTree<CR>
+inoremap <silent> <F12> <c-o>:NERDTree<CR>
+autocmd FileType nerdtree nnoremap <silent><buffer> <F12> :close<CR>
 
 
 "
