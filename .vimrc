@@ -177,6 +177,18 @@ vnoremap > >gv
 
 
 "
+" omni complete
+" 
+set completeopt=longest,menuone,preview
+" If you prefer the Omni-Completion tip window to close when a selection is made, 
+" these lines close it on movement in insert mode or when leaving insert mode
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+:highlight Pmenu ctermfg=15 ctermbg=4
+:highlight PmenuSel ctermfg=2 ctermbg=5
+
+
+"
 " Taglist variables
 " (require exuberant-ctags: http://ctags.sourceforge.net/
 "  use 'sudo apt-get install exuberant-ctags' to install)
