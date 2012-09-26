@@ -225,7 +225,22 @@ autocmd FileType python imap <F1> <ESC>K
 let g:flake8_ignore="E501,W391"
 " auto complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"let g:pydiction_location='~/.vim/bundle/pydiction/complete-dict'
+" run script
+autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
+autocmd FileType python nnoremap <buffer><silent> <F9> :RunPyBuffer<CR>
+autocmd FileType python inoremap <buffer><silent> <F9> <ESC>:w<CR>:RunPyBuffer<CR>
+autocmd FileType output noremap <silent><buffer> q :close<CR>
+
+function! DoRunPyBuffer()
+    " force preview window closed
+    pclose!
+    " copy the buffer into a new window, then run that buffer through python
+    silent %y a | below 10 new | silent put a | silent %!python -
+    " indicate the output window as the current previewwindow
+    setlocal previewwindow ro nomodifiable nomodified filetype=output
+    " back into the original window
+    winc p
+endfunction
 
 
 "
