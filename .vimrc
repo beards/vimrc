@@ -209,9 +209,11 @@ inoremap <silent> <F11> <c-o>:TlistToggle<CR>
 "
 " Nerd Tree
 "
-nnoremap <silent> <F12> :NERDTree<CR>
-inoremap <silent> <F12> <c-o>:NERDTree<CR>
-autocmd FileType nerdtree nnoremap <silent><buffer> <F12> :close<CR>
+nnoremap <silent> <F12> :NERDTreeToggle<CR>
+inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 
 "
