@@ -56,7 +56,7 @@ set smartindent
 filetype on
 filetype indent on
 filetype plugin on
-autocmd FileType Makefile set noexpandtab    "disable tab replacement on Makefile
+autocmd FileType Makefile setlocal noexpandtab    "disable tab replacement on Makefile
 
 
 "
@@ -217,10 +217,10 @@ autocmd FileType nerdtree nnoremap <silent><buffer> <F12> :close<CR>
 " python
 "
 " python.vim: syntax highlight
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
+autocmd FileType python setlocal complete+=k~/.vim/syntax/python.vim isk+=.,(
 " help key mapping
-autocmd FileType python map <F1> K
-autocmd FileType python imap <F1> <ESC>K
+autocmd FileType python map <buffer> <F1> K
+autocmd FileType python imap <buffer> <F1> <ESC>K
 " flake8: ignore E501 line too long
 let g:flake8_ignore="E501,W391"
 " auto complete
@@ -246,9 +246,9 @@ endfunction
 "
 " php
 "
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-set foldmethod=syntax
-let php_folding=2
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType php setlocal foldmethod=syntax
+autocmd FileType php let php_folding=2
 
 
 "
