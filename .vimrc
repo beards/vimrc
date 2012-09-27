@@ -17,6 +17,7 @@ set history=50
 set showcmd
 set nomodeline      "ignore mode implication
 set backspace=indent,eol,start      " allow backspacing over everything in insert mode
+set textwidth=0
 
 autocmd! bufwritepost .vimrc source ~/.vimrc " auto reload vimrc when editing it
 
