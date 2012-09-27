@@ -219,6 +219,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "
 " python
 "
+" header
+autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
 " python.vim: syntax highlight
 autocmd FileType python setlocal complete+=k~/.vim/syntax/python.vim isk+=.,(
 " help key mapping
