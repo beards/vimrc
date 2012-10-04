@@ -227,8 +227,12 @@ autocmd FileType python setlocal complete+=k~/.vim/syntax/python.vim isk+=.,(
 " help key mapping
 autocmd FileType python map <buffer> <F1> K
 autocmd FileType python imap <buffer> <F1> <ESC>K
-" flake8: ignore E501 line too long
-let g:flake8_ignore="E501,W391"
+" flake8
+" ignore E501 line too long
+" ignore W391 blank line at end of file
+" ignore W404 'from response_maker import *' used; unable to detect undefined names
+autocmd FileType python inoremap <buffer> <F7> <c-o>:w<CR><c-o>:call Flake8()<CR>
+let g:flake8_ignore="E501,W391,W404"
 " auto complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " run script
