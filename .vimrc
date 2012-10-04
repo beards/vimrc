@@ -218,6 +218,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 "
+" Ack.vim
+"
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+
+"
 " python
 "
 " header

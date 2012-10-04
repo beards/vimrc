@@ -14,6 +14,9 @@ require 'exuberant-ctags' for plugin 'taglist':
 require 'flake8' for plugin 'vim-flake8':  
     `sudo pip install flake8`  
 
+require 'ack-grep' for plugin 'ack.vim'"  
+    `sudo apt-get install ack-grep`
+
 
 PLUGINS
 -------
@@ -37,6 +40,8 @@ PLUGINS
 * [flake8](https://github.com/nvie/vim-flake8): python syntax checking and format checking  
     `<F7>` show checking result  
 * [cureErrorMarker](https://github.com/Twinside/vim-cuteErrorMarker): pretty inline error message marker  
+* [ack.vim](https://github.com/mileszs/ack.vim): allow you to run ack from vim, and shows the results in a split window
+
   
 REFERENCE
 ---------
