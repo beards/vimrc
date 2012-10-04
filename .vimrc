@@ -158,6 +158,7 @@ noremap <silent> <c-h> <c-w>h
 noremap <silent> <c-l> <c-w>l
 noremap <silent> <F6> <c-w>w
 inoremap <silent> <F6> <c-o><c-w>w
+inoremap <silent> <c-w> <c-o><c-w>
 
 " for mouse selection / paste
 noremap <silent> <F2> :set nu! paste!<CR>
