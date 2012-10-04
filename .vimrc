@@ -244,12 +244,13 @@ autocmd FileType output noremap <silent><buffer> q :close<CR>
 function! DoRunPyBuffer()
     " force preview window closed
     pclose!
+    "windo if filetype == 'output' | wincmd q | endif
     " copy the buffer into a new window, then run that buffer through python
     silent %y a | below 10 new | silent put a | silent %!python -
     " indicate the output window as the current previewwindow
     setlocal previewwindow ro nomodifiable nomodified filetype=output
     " back into the original window
-    winc p
+    "winc p
 endfunction
 
 
