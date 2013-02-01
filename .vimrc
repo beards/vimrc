@@ -227,7 +227,8 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " python
 "
 " header
-autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
+"autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
+autocmd FileType python map <buffer> <F5> gg O#!/usr/bin/env python<CR><CR><ESC>
 " python.vim: syntax highlight
 autocmd FileType python setlocal complete+=k~/.vim/syntax/python.vim isk+=.,(
 " help key mapping
