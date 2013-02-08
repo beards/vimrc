@@ -3,13 +3,6 @@
 "
 
 "
-" vim-pathogen
-"
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
-
-"
 " basic
 "
 set nocompatible
@@ -179,48 +172,16 @@ vnoremap > >gv
 
 
 "
-" omni complete
-" 
-set completeopt=longest,menuone
-" If you prefer the Omni-Completion tip window to close when a selection is made, 
-" these lines close it on movement in insert mode or when leaving insert mode
-"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-:highlight Pmenu ctermfg=15 ctermbg=4
-:highlight PmenuSel ctermfg=2 ctermbg=5
-
-
+" set screen title
 "
-" Taglist variables
-" (require exuberant-ctags: http://ctags.sourceforge.net/
-"  use 'sudo apt-get install exuberant-ctags' to install)
-"
-let g:ctags_statusline=1        " Display function name in status bar
-let generate_tags=1             " Automatically start script
-let Tlist_Use_Horiz_Window=0    " Displays taglist results in a vertical window
-let Tlist_Use_Right_Window = 1
-let Tlist_Compact_Format = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_File_Fold_Auto_Close = 1
-nnoremap <silent> <F11> :TlistToggle<CR>
-inoremap <silent> <F11> <c-o>:TlistToggle<CR>
-
-
-"
-" Nerd Tree
-"
-nnoremap <silent> <F12> :NERDTreeToggle<CR>
-inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-
-"
-" Ack.vim
-"
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+set titlestring=%t%(\ %M%)
+if &term == "screen" || &term == "screen-bce"
+  set t_ts=k
+  set t_fs=\
+endif
+if &term == "screen" || &term == "screen-bce" || &term == "xterm"
+  set title
+endif
 
 
 "
@@ -229,19 +190,6 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " header
 "autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
 autocmd FileType python map <buffer> <F5> gg O#!/usr/bin/env python<CR><CR><ESC>
-" python.vim: syntax highlight
-autocmd FileType python setlocal complete+=k~/.vim/syntax/python.vim isk+=.,(
-" help key mapping
-autocmd FileType python map <buffer> <F1> K
-autocmd FileType python imap <buffer> <F1> <ESC>K
-" flake8
-" ignore E501 line too long
-" ignore W391 blank line at end of file
-" ignore W404 'from response_maker import *' used; unable to detect undefined names
-autocmd FileType python inoremap <buffer> <F7> <c-o>:w<CR><c-o>:call Flake8()<CR>
-let g:flake8_ignore="E501,W391,W404"
-" auto complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 " run script
 autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
 autocmd FileType python nnoremap <buffer><silent> <F9> :RunPyBuffer<CR>
@@ -270,14 +218,59 @@ autocmd FileType php let php_folding=2
 
 
 "
-" set screen title
+" plugins
 "
-set titlestring=%t%(\ %M%)
-if &term == "screen" || &term == "screen-bce"
-  set t_ts=k
-  set t_fs=\
-endif
-if &term == "screen" || &term == "screen-bce" || &term == "xterm"
-  set title
-endif
+" using vundle for management
+"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'git@github.com:gmarik/vundle.git'
+
+" easy motion
+"
+Bundle 'git@github.com:Lokaltog/vim-easymotion.git'
+
+" Nerd Tree
+"
+Bundle 'git@github.com:scrooloose/nerdtree.git'
+nnoremap <silent> <F12> :NERDTreeToggle<CR>
+inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Taglist variables
+" (require exuberant-ctags: http://ctags.sourceforge.net/
+"  use 'sudo apt-get install exuberant-ctags' to install)
+"
+Bundle 'git@github.com:vim-scripts/taglist.vim.git'
+let g:ctags_statusline=1        " Display function name in status bar
+let generate_tags=1             " Automatically start script
+let Tlist_Use_Horiz_Window=0    " Displays taglist results in a vertical window
+let Tlist_Use_Right_Window = 1
+let Tlist_Compact_Format = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_File_Fold_Auto_Close = 1
+nnoremap <silent> <F11> :TlistToggle<CR>
+inoremap <silent> <F11> <c-o>:TlistToggle<CR>
+
+" pep8-indent for python
+"
+Bundle 'git@github.com:hynek/vim-python-pep8-indent.git'
+
+" flake8 for python
+" (require flake8: http://pypi.python.org/pypi/flake8
+"  user 'sudo pip install flake8' to install)
+"
+Bundle 'git@github.com:nvie/vim-flake8.git'
+" ignore E501 line too long
+" ignore W391 blank line at end of file
+" ignore W404 'from response_maker import *' used; unable to detect undefined names
+autocmd FileType python inoremap <buffer> <F7> <c-o>:w<CR><c-o>:call Flake8()<CR>
+let g:flake8_ignore="E501,W391,W404"
+
+" cute error marker
+"
+Bundle 'git@github.com:Twinside/vim-cuteErrorMarker.git'
 
