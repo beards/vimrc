@@ -268,20 +268,14 @@ inoremap <silent> <F11> <c-o>:TlistToggle<CR>
 "
 Bundle 'hynek/vim-python-pep8-indent.git'
 
-" flake8 for python
-" (require flake8: http://pypi.python.org/pypi/flake8
-"  use 'sudo pip install flake8' to install)
+" syntastic
 "
-Bundle 'nvie/vim-flake8.git'
+Bundle 'scrooloose/syntastic'
+" python syntax checking: flake8 (http://pypi.python.org/pypi/flake8, use 'sudo pip install flake8' to install)
 " ignore E501 line too long
 " ignore W391 blank line at end of file
-" ignore W404 'from response_maker import *' used; unable to detect undefined names
-autocmd FileType python inoremap <buffer> <F7> <c-o>:w<CR><c-o>:call Flake8()<CR>
-let g:flake8_ignore="E501,W391,W404"
-
-" cute error marker
-"
-Bundle 'Twinside/vim-cuteErrorMarker.git'
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,W391'
 
 " YouCompleteMe
 " (require cmake: http://www.cmake.org/
