@@ -272,5 +272,20 @@ let g:flake8_ignore="E501,W391,W404"
 
 " cute error marker
 "
-Bundle 'git@github.com:Twinside/vim-cuteErrorMarker.git'
+Bundle 'Twinside/vim-cuteErrorMarker.git'
+
+" YouCompleteMe
+" (require cmake: http://www.cmake.org/
+"  use 'sudo apt-get install cmake' to install)
+" (require clang: http://clang.llvm.org/
+"  use 'bash_env/scripts/build_clang.sh' to install)
+" (also need to build, run the command below after BundleInstall
+"  '~/.vim/bundle/YouCompleteMe/install.sh --clang-completer')
+"
+Bundle 'beards/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_complete_in_comments_and_strings=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
 
