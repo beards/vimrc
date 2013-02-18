@@ -292,3 +292,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 
+" ListToggle
+"
+Bundle 'Valloric/ListToggle'
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
