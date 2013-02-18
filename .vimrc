@@ -230,6 +230,15 @@ Bundle 'gmarik/vundle.git'
 "
 Bundle 'Lokaltog/vim-easymotion.git'
 
+" SearchComplete
+"
+Bundle 'SearchComplete'
+
+" MultipleSearch
+"
+Bundle 'MultipleSearch'
+" (default mapping: <leader>* to highlight current word)
+
 " Nerd Tree
 "
 Bundle 'git@github.com:scrooloose/nerdtree.git'
