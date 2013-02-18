@@ -30,22 +30,12 @@ cd ~/packages/vim/
             --enable-perlinterp \
             --enable-gui=gnome2 \
             --enable-cscope
-make all
-
-echo -e "#"
-echo -e "# $SCRIPT_NAME: make path link"
-echo -e "#"
-cd /usr/local/bin
-mv vim vim.bak.$DATE &> /dev/null
-sudo ln -s ~/packages/vim/src/vim
-mv vi vi.bak.$DATE &> /dev/null
-sudo ln -s vim vi
-cd /usr/share/
-mv vim vim.bak.$DATE &> /dev/null
-sudo ln -s ~/packages/vim/runtime vim
+make -j 4
+sudo make install
 
 echo -e "#"
 echo -e "# $SCRIPT_NAME: set vimrc"
+echo -e "#"
 cd $SRC_DIR
 git submodule init
 git submodule update
@@ -64,6 +54,10 @@ sudo apt-get install -y python-pip exuberant-ctags
 sudo pip install flake8
 
 vim +BundleInstall +qall
+
+sudo apt-get install -y cmake
+cd ~/.vim/bundle/YouCompleteMe/
+./install.sh --clang-completer
 
 echo -e "#"
 echo -e "# $SCRIPT_NAME: done !"
