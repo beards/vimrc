@@ -224,11 +224,11 @@ autocmd FileType php let php_folding=2
 "
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'git@github.com:gmarik/vundle.git'
+Bundle 'gmarik/vundle.git'
 
 " easy motion
 "
-Bundle 'git@github.com:Lokaltog/vim-easymotion.git'
+Bundle 'Lokaltog/vim-easymotion.git'
 
 " Nerd Tree
 "
@@ -243,7 +243,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " (require exuberant-ctags: http://ctags.sourceforge.net/
 "  use 'sudo apt-get install exuberant-ctags' to install)
 "
-Bundle 'git@github.com:vim-scripts/taglist.vim.git'
+Bundle 'vim-scripts/taglist.vim.git'
 let g:ctags_statusline=1        " Display function name in status bar
 let generate_tags=1             " Automatically start script
 let Tlist_Use_Horiz_Window=0    " Displays taglist results in a vertical window
@@ -257,13 +257,13 @@ inoremap <silent> <F11> <c-o>:TlistToggle<CR>
 
 " pep8-indent for python
 "
-Bundle 'git@github.com:hynek/vim-python-pep8-indent.git'
+Bundle 'hynek/vim-python-pep8-indent.git'
 
 " flake8 for python
 " (require flake8: http://pypi.python.org/pypi/flake8
-"  user 'sudo pip install flake8' to install)
+"  use 'sudo pip install flake8' to install)
 "
-Bundle 'git@github.com:nvie/vim-flake8.git'
+Bundle 'nvie/vim-flake8.git'
 " ignore E501 line too long
 " ignore W391 blank line at end of file
 " ignore W404 'from response_maker import *' used; unable to detect undefined names
