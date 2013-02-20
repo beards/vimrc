@@ -297,3 +297,10 @@ let g:ycm_collect_identifiers_from_comments_and_strings=1
 Bundle 'Valloric/ListToggle'
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
+
+" ack
+" (require ack-grep: http://betterthangrep.com/
+"  use 'sudo apt-get install ack-grep' to install)
+"
+Bundle 'mileszs/ack.vim'
+nnoremap <silent> <Leader>g :Ack!<CR>
