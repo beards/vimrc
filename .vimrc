@@ -232,7 +232,7 @@ Bundle 'Lokaltog/vim-easymotion.git'
 
 " SearchComplete
 "
-Bundle 'SearchComplete'
+"Bundle 'SearchComplete'  " disabled due to it disturbs arrow keys
 
 " MultipleSearch
 "
