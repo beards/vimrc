@@ -185,6 +185,14 @@ endif
 
 
 "
+" c / cpp
+"
+autocmd FileType c setlocal foldmethod=syntax
+autocmd FileType cpp setlocal foldmethod=syntax
+
+
+
+"
 " python
 "
 " header
