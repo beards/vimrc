@@ -197,11 +197,11 @@ autocmd FileType cpp setlocal foldmethod=syntax
 "
 " header
 "autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
-autocmd FileType python map <buffer> <F5> gg O#!/usr/bin/env python<CR><CR><ESC>
+autocmd FileType python map <leader>! gg O#!/usr/bin/env python<CR><CR><ESC>
 " run script
 autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
-autocmd FileType python nnoremap <buffer><silent> <F9> :RunPyBuffer<CR>
-autocmd FileType python inoremap <buffer><silent> <F9> <ESC>:w<CR>:RunPyBuffer<CR>
+autocmd FileType python nnoremap <buffer><silent> <F5> :RunPyBuffer<CR>
+autocmd FileType python inoremap <buffer><silent> <F5> <ESC>:w<CR>:RunPyBuffer<CR>
 autocmd FileType output noremap <silent><buffer> q :close<CR>
 
 function! DoRunPyBuffer()
@@ -299,6 +299,8 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
+inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
 
 " ListToggle
 "
