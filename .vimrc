@@ -185,11 +185,30 @@ endif
 
 
 "
+" for trailing whitespaces
+"
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+
+"
 " c / cpp
 "
 autocmd FileType c setlocal foldmethod=syntax
 autocmd FileType cpp setlocal foldmethod=syntax
-
+" auto-strip trailing whitespaces
+autocmd BufWritePre *.c :call TrimWhiteSpace()
+autocmd BufWritePre *.cpp :call TrimWhiteSpace()
+autocmd BufWritePre *.cc :call TrimWhiteSpace()
+autocmd BufWritePre *.h :call TrimWhiteSpace()
+autocmd BufWritePre *.hpp :call TrimWhiteSpace()
 
 
 "
@@ -198,6 +217,8 @@ autocmd FileType cpp setlocal foldmethod=syntax
 " header
 "autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
 autocmd FileType python map <leader>! gg O#!/usr/bin/env python<CR><CR><ESC>
+" auto-strip trailing whitespaces
+autocmd BufWritePre *.py :call TrimWhiteSpace()
 " run script
 autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
 autocmd FileType python nnoremap <buffer><silent> <F5> :RunPyBuffer<CR>
