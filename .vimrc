@@ -348,10 +348,14 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 "  use 'sudo apt-get install ack-grep' to install)
 "
 Bundle 'mileszs/ack.vim'
-nnoremap <silent> <Leader>g :Ack!<CR>
+nnoremap <silent> <leader>f :Ack!<CR>
 
 " python.vim
 " (Enhanced version of the python syntax highlighting script)
 "
 Bundle 'python.vim'
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
