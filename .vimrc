@@ -224,6 +224,15 @@ autocmd FileType python map <leader>! gg O#!/usr/bin/env python<CR><CR><ESC>
 autocmd BufRead,BufNewFile *.py :colorscheme bear-python
 " auto-strip trailing whitespaces
 autocmd BufWritePre *.py :call TrimWhiteSpace()
+" smartindent:
+" When typing '#' as the first character in a new line, the indent for
+" that line is removed, the '#' is put in the first column.  The indent
+" is restored for the next line.
+" If you don't want this, use this
+" mapping: ":inoremap # X^H#", where ^H is entered with CTRL-V CTRL-H.
+" When using the ">>" command, lines starting with '#' are not shifted
+" right.
+autocmd FileType python inoremap # X#
 " run script
 autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
 autocmd FileType python nnoremap <buffer><silent> <F5> :RunPyBuffer<CR>
