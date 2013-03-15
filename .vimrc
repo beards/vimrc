@@ -73,9 +73,9 @@ set smartcase       "ignore case if search pattern is all lowercase,case-sensiti
 " theme / color / syntax
 "
 set background=dark
+set t_Co=256
 syntax on
 colorscheme torte
-"set t_Co=256
 
 
 "
@@ -175,12 +175,15 @@ vnoremap > >gv
 " set screen title
 "
 set titlestring=%t%(\ %M%)
-if &term == "screen" || &term == "screen-bce"
-  set t_ts=k
-  set t_fs=\
-endif
-if &term == "screen" || &term == "screen-bce" || &term == "xterm"
-  set title
+"if &term == "screen" || &term == "screen-bce"
+if match($TERM, "screen") != -1
+    set t_ts=k
+    set t_fs=\
+    "set term=xterm-256color
+    let g:GNU_Screen_used = 1
+    set title
+elseif match(&term, "xterm") != -1
+    set title
 endif
 
 
@@ -217,6 +220,8 @@ autocmd BufWritePre *.hpp :call TrimWhiteSpace()
 " header
 "autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
 autocmd FileType python map <leader>! gg O#!/usr/bin/env python<CR><CR><ESC>
+" colorscheme
+autocmd BufRead,BufNewFile *.py :colorscheme bear-python
 " auto-strip trailing whitespaces
 autocmd BufWritePre *.py :call TrimWhiteSpace()
 " run script
@@ -335,3 +340,9 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 "
 Bundle 'mileszs/ack.vim'
 nnoremap <silent> <Leader>g :Ack!<CR>
+
+" python.vim
+" (Enhanced version of the python syntax highlighting script)
+"
+Bundle 'python.vim'
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
