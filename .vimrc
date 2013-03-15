@@ -365,6 +365,17 @@ let g:indent_guides_auto_colors = 1
 Bundle 'python.vim'
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
+" jedi-vim
+" (for python auto-completion)
+"
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
+
+" vim-gitgutter
+"
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 0
+nnoremap <silent> <F8> :GitGutterToggle<CR>
+nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
+nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
