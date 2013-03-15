@@ -350,6 +350,15 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 Bundle 'mileszs/ack.vim'
 nnoremap <silent> <leader>f :Ack!<CR>
 
+" vim-indent-guides
+"
+" (default shortcur: <leader>ig
+Bundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 0
+"let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 1
+
 " python.vim
 " (Enhanced version of the python syntax highlighting script)
 "
