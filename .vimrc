@@ -328,7 +328,7 @@ let g:syntastic_python_flake8_args='--ignore=E501,W391'
 " (also need to build, run the command below after BundleInstall
 "  '~/.vim/bundle/YouCompleteMe/install.sh --clang-completer')
 "
-Bundle 'beards/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_autoclose_preview_window_after_completion=1
