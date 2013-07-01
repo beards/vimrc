@@ -292,7 +292,7 @@ Bundle 'scrooloose/nerdtree'
 nnoremap <silent> <F12> :NERDTreeToggle<CR>
 inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]']
+let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]', '\.class[[file]]']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Taglist variables
@@ -323,6 +323,7 @@ Bundle 'scrooloose/syntastic'
 " ignore W391 blank line at end of file
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,W391'
+let g:syntastic_java_javac_config_file_enabled=1
 
 " YouCompleteMe
 " (require cmake: http://www.cmake.org/
