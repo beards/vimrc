@@ -288,7 +288,7 @@ Bundle 'MultipleSearch'
 
 " Nerd Tree
 "
-Bundle 'git@github.com:scrooloose/nerdtree.git'
+Bundle 'scrooloose/nerdtree'
 nnoremap <silent> <F12> :NERDTreeToggle<CR>
 inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
