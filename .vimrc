@@ -341,6 +341,7 @@ let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ListToggle
 "
@@ -373,9 +374,10 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 " jedi-vim
 " (for python auto-completion)
 "
-Bundle 'davidhalter/jedi-vim'
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
+"Bundle 'davidhalter/jedi-vim'
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_select_first = 0
+"let g:jedi#use_tabs_not_buffers = 1
 
 " vim-gitgutter
 "
