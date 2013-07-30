@@ -147,6 +147,8 @@ function! Help()
   endif
 endfunc
 
+" for tabs
+noremap <silent> tg gT
 
 " for splits
 noremap <silent> <C-J> <C-W>j
