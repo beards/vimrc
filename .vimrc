@@ -289,8 +289,9 @@ Bundle 'MultipleSearch'
 " Nerd Tree
 "
 Bundle 'scrooloose/nerdtree'
-nnoremap <silent> <F12> :NERDTreeToggle<CR>
-inoremap <silent> <F12> <c-o>:NERDTreeToggle<CR>
+Bundle 'jistr/vim-nerdtree-tabs'
+nnoremap <silent> <F12> :NERDTreeMirrorToggle<CR>
+inoremap <silent> <F12> <c-o>:NERDTreeMirrorToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]', '\.class[[file]]']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
