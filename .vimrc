@@ -206,6 +206,8 @@ au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
+nnoremap <silent> <leader>ts :call TrimWhiteSpace()<cr>
+
 
 "
 " c / cpp
