@@ -47,6 +47,7 @@ cd $SRC_DIR
 set +e
 git submodule init
 git submodule update --init --recursive
+git submodule foreach --recursive "(git checkout master; git pull --rebase)"
 cd ~
 mv .vim .vim.bak.$DATE &> /dev/null
 ln -s $SRC_DIR .vim
