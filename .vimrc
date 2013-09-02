@@ -299,6 +299,7 @@ inoremap <silent> <F12> <c-o>:NERDTreeMirrorToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]', '\.class[[file]]']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap <leader>f :NERDTreeFind<CR>
 
 " Taglist variables
 " (require exuberant-ctags: http://ctags.sourceforge.net/
@@ -359,7 +360,7 @@ let g:lt_quickfix_list_toggle_map = '<leader>q'
 "  use 'sudo apt-get install ack-grep' to install)
 "
 Bundle 'mileszs/ack.vim'
-nnoremap <silent> <leader>f :Ack!<CR>
+nnoremap <silent> <leader>F :Ack!<CR>
 
 " vim-indent-guides
 "
