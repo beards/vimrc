@@ -397,3 +397,8 @@ let g:gitgutter_enabled = 0
 nnoremap <silent> <F8> :GitGutterToggle<CR>
 nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
 nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
+
+" ctrlp
+" for finding files
+"
+Bundle 'kien/ctrlp.vim'
