@@ -208,6 +208,8 @@ au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
+set list  " show trailing whitespace
+set listchars=tab:▸\ ,trail:▫
 
 nnoremap <silent> <leader>ts :call TrimWhiteSpace()<cr>
 
