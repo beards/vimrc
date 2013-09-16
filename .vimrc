@@ -159,10 +159,6 @@ noremap <silent> <F6> <c-w>w
 inoremap <silent> <F6> <c-o><c-w>w
 inoremap <silent> <c-w> <c-o><c-w>
 
-" for mouse selection / paste
-noremap <silent> <F2> :set nu! paste!<CR>
-set pastetoggle=<F2>
-
 " search next/previous
 set <s-F3>=[25~
 noremap <F3> n
@@ -175,6 +171,13 @@ inoremap <F4> <c-o>:set hls!<BAR>set hls?<CR>
 " allow multiple indentation/deindentation in visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+" line numbers show/hide and normal/relative
+noremap <silent> <F2> :call ToggleLineNumbers()<CR>
+nnoremap <silent><buffer> <leader>n :call ToggleRelative()<CR>
+
+" paste mode
+set pastetoggle=<F2>
 
 
 "
