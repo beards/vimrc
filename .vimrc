@@ -379,7 +379,7 @@ let g:indent_guides_auto_colors = 1
 " python.vim
 " (Enhanced version of the python syntax highlighting script)
 "
-Bundle 'python.vim'
+Bundle 'vim-scripts/python.vim--Vasiliev'
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " jedi-vim
