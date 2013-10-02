@@ -5,6 +5,8 @@
 "
 " basic
 "
+scriptencoding utf-8
+
 set nocompatible
 set history=50
 set showcmd
@@ -27,6 +29,10 @@ autocmd BufReadPost *
 " encoding / format
 "
 if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
   set fileencodings=utf-8,big5,cp950,gbk,cp936,iso-2022-jp,sjis,euc-jp,japan,euc-kr,ucs-bom,utf-bom,latin1,iso8859-1
   set fileencoding=utf-8
 else
