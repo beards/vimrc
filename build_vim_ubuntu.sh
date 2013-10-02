@@ -22,7 +22,7 @@ mkdir -p ~/packages
 cd ~/packages/
 if [ ! -e "vim" ]; then
     hg clone https://code.google.com/p/vim/
-eles
+else
     cd vim
     hg update
 fi
