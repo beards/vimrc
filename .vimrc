@@ -72,7 +72,8 @@ set foldnestmax=3
 "
 set incsearch       "highlight while typing
 set hlsearch        "highlight search result
-set smartcase       "ignore case if search pattern is all lowercase,case-sensitive otherwise
+set ignorecase      "search in case insensitive
+set smartcase       "switch to do case sensitive search when patterns contains upper case chars
 
 
 "
