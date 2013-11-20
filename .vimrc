@@ -342,6 +342,10 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501,W391'
 let g:syntastic_java_javac_config_file_enabled=1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_no_default_include_dirs = 1
+let g:syntastic_cpp_auto_refresh_includes = 1
+
 
 " YouCompleteMe
 " (require cmake: http://www.cmake.org/
@@ -357,6 +361,7 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_confirm_extra_conf=0
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
