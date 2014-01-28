@@ -414,3 +414,8 @@ nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
 " for finding files
 "
 Bundle 'kien/ctrlp.vim'
+
+" vcscommand.vim
+" for git diff viewing
+"
+Bundle 'git://repo.or.cz/vcscommand'
