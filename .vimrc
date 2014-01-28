@@ -404,11 +404,11 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " vim-gitgutter
 "
-Bundle 'airblade/vim-gitgutter'
-let g:gitgutter_enabled = 0
-nnoremap <silent> <F8> :GitGutterToggle<CR>
-nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
-nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
+"Bundle 'airblade/vim-gitgutter'
+"let g:gitgutter_enabled = 0
+"nnoremap <silent> <F8> :GitGutterToggle<CR>
+"nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
+"nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
 
 " ctrlp
 " for finding files
