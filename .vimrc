@@ -310,6 +310,7 @@ nnoremap <silent> <F12> :NERDTreeMirrorToggle<CR>
 inoremap <silent> <F12> <c-o>:NERDTreeMirrorToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]', '\.class[[file]]']
+let g:nerdtree_tabs_open_on_gui_startup=0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nnoremap <leader>f :NERDTreeFind<CR>
 
