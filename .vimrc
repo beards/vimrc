@@ -357,21 +357,24 @@ let g:syntastic_cpp_auto_refresh_includes = 1
 "  '~/.vim/bundle/YouCompleteMe/install.sh --clang-completer')
 "
 Bundle 'Valloric/YouCompleteMe'
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_confirm_extra_conf=0
+let g:ycm_error_symbol='e>'
+let g:ycm_warning_symbol='w>'
+let g:ycm_always_populate_location_list=1
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>l :lopen<CR>
+nnoremap ]e :lnext<CR>
+nnoremap [e :lprev<CR>
 
-" ListToggle
-"
-Bundle 'Valloric/ListToggle'
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
 
 " ack
 " (require ack-grep: http://betterthangrep.com/
