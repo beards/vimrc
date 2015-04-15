@@ -366,6 +366,7 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_error_symbol='e>'
 let g:ycm_warning_symbol='w>'
 let g:ycm_always_populate_location_list=1
+let g:ycm_goto_buffer_command = 'new-or-existing-tab'
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
