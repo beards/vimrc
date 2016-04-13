@@ -358,15 +358,16 @@ let g:syntastic_cpp_auto_refresh_includes = 1
 "
 Bundle 'Valloric/YouCompleteMe'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_collect_identifiers_from_comments_and_strings=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_error_symbol='e>'
 let g:ycm_warning_symbol='w>'
 let g:ycm_always_populate_location_list=1
-let g:ycm_goto_buffer_command = 'new-or-existing-tab'
+"let g:ycm_goto_buffer_command = 'new-or-existing-tab'
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
