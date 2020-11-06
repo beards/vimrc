@@ -301,6 +301,9 @@ Bundle 'Lokaltog/vim-easymotion.git'
 "
 Bundle 'MultipleSearch'
 " (default mapping: <leader>* to highlight current word)
+" (:Search <pattern1> - highlights all occurrences of <pattern1> in the current buffer)
+" (:SearchReset - to clear the highlighting)
+" (:SearchReinit)
 
 " Nerd Tree
 "
