@@ -271,6 +271,11 @@ function! DoRunPyBuffer()
     "winc p
 endfunction
 
+"
+" golang
+"
+autocmd FileType go setlocal noexpandtab    "disable tab replacement on Makefile
+
 
 "
 " php
