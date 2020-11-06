@@ -287,19 +287,19 @@ autocmd FileType php let php_folding=2
 "
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle.git'
+Plugin 'gmarik/vundle.git'
 
 " easy motion
 "
-Bundle 'Lokaltog/vim-easymotion.git'
+Plugin 'Lokaltog/vim-easymotion.git'
 
 " SearchComplete
 "
-"Bundle 'SearchComplete'  " disabled due to it disturbs arrow keys
+"Plugin 'SearchComplete'  " disabled due to it disturbs arrow keys
 
 " MultipleSearch
 "
-Bundle 'MultipleSearch'
+Plugin 'MultipleSearch'
 " (default mapping: <leader>* to highlight current word)
 " (:Search <pattern1> - highlights all occurrences of <pattern1> in the current buffer)
 " (:SearchReset - to clear the highlighting)
@@ -307,8 +307,8 @@ Bundle 'MultipleSearch'
 
 " Nerd Tree
 "
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 nnoremap <silent> <F12> :NERDTreeMirrorToggle<CR>
 inoremap <silent> <F12> <c-o>:NERDTreeMirrorToggle<CR>
 let NERDTreeShowHidden=1
@@ -321,7 +321,7 @@ nnoremap <leader>f :NERDTreeFind<CR>
 " (require exuberant-ctags: http://ctags.sourceforge.net/
 "  use 'sudo apt-get install exuberant-ctags' to install)
 "
-Bundle 'vim-scripts/taglist.vim.git'
+Plugin 'vim-scripts/taglist.vim.git'
 let g:ctags_statusline=1        " Display function name in status bar
 let generate_tags=1             " Automatically start script
 let Tlist_Use_Horiz_Window=0    " Displays taglist results in a vertical window
@@ -335,11 +335,11 @@ inoremap <silent> <F11> <c-o>:TlistToggle<CR>
 
 " pep8-indent for python
 "
-Bundle 'hynek/vim-python-pep8-indent.git'
+Plugin 'hynek/vim-python-pep8-indent.git'
 
 " syntastic
 "
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " python syntax checking: flake8 (http://pypi.python.org/pypi/flake8, use 'sudo pip install flake8' to install)
 " ignore E501 line too long
 " ignore W391 blank line at end of file
@@ -356,13 +356,13 @@ let g:syntastic_cpp_auto_refresh_includes = 1
 " (require ack-grep: http://betterthangrep.com/
 "  use 'sudo apt-get install ack-grep' to install)
 "
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 nnoremap <silent> <leader>F :Ack!<CR>
 
 " vim-indent-guides
 "
 " (default shortcur: <leader>ig
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 0
 "let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
@@ -371,20 +371,20 @@ let g:indent_guides_auto_colors = 1
 " python.vim
 " (Enhanced version of the python syntax highlighting script)
 "
-Bundle 'vim-scripts/python.vim--Vasiliev'
+Plugin 'vim-scripts/python.vim--Vasiliev'
 autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 
 " jedi-vim
 " (for python auto-completion)
 "
-"Bundle 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 "let g:jedi#popup_on_dot = 0
 "let g:jedi#popup_select_first = 0
 "let g:jedi#use_tabs_not_buffers = 1
 
 " vim-gitgutter
 "
-"Bundle 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 "let g:gitgutter_enabled = 0
 "nnoremap <silent> <F8> :GitGutterToggle<CR>
 "nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
@@ -393,12 +393,12 @@ autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 " ctrlp
 " for finding files
 "
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 " vcscommand.vim
 " for git diff viewing
 "
-Bundle 'git://repo.or.cz/vcscommand'
+Plugin 'git://repo.or.cz/vcscommand'
 
 
 " " YouCompleteMe
@@ -406,10 +406,10 @@ Bundle 'git://repo.or.cz/vcscommand'
 " "  use 'sudo apt-get install cmake' to install)
 " " (require clang: http://clang.llvm.org/
 " "  use 'bash_env/scripts/build_clang.sh' to install)
-" " (also need to build, run the command below after BundleInstall
+" " (also need to build, run the command below after PluginInstall
 " "  '~/.vim/bundle/YouCompleteMe/install.sh --clang-completer')
 " "
-" Bundle 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 " let g:ycm_add_preview_to_completeopt=1
 " let g:ycm_autoclose_preview_window_after_completion=0
