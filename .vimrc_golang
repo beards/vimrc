@@ -1,0 +1,17 @@
+"
+" vimrc, golang
+"
+
+"
+" indent
+"
+autocmd FileType go setlocal noexpandtab    "golang prefer to use tab
+
+"
+" plugin: vim-go
+" ( https://github.com/fatih/vim-go )
+"
+" Good on nevigation, bad on auto-completion
+"
+Plugin 'fatih/vim-go'
+

@@ -1,0 +1,75 @@
+"
+" vimrc for python
+"
+
+" header
+"autocmd BufNewFile *.py call setline(1, ["#!/usr/bin/env python", "", ""]) | normal G
+autocmd FileType python map <leader>! gg<CR>i#!/usr/bin/env python<CR><CR><ESC>
+
+" colorscheme
+autocmd BufRead,BufNewFile *.py :colorscheme bear-python
+
+" auto-strip trailing whitespaces
+autocmd BufWritePre *.py :call TrimWhiteSpace()
+
+" smartindent:
+" When typing '#' as the first character in a new line, the indent for
+" that line is removed, the '#' is put in the first column.  The indent
+" is restored for the next line.
+" If you don't want this, use this
+" mapping: ":inoremap # X^H#", where ^H is entered with CTRL-V CTRL-H.
+" When using the ">>" command, lines starting with '#' are not shifted
+" right.
+autocmd FileType python inoremap # X#
+
+" run script
+autocmd FileType python command! RunPyBuffer call DoRunPyBuffer()
+autocmd FileType python nnoremap <buffer><silent> <F5> :RunPyBuffer<CR>
+autocmd FileType python inoremap <buffer><silent> <F5> <ESC>:w<CR>:RunPyBuffer<CR>
+autocmd FileType output noremap <silent><buffer> q :close<CR>
+
+function! DoRunPyBuffer()
+    " force preview window closed
+    pclose!
+    "windo if filetype == 'output' | wincmd q | endif
+    " copy the buffer into a new window, then run that buffer through python
+    silent %y a | below 10 new | silent put a | silent %!python -
+    " indicate the output window as the current previewwindow
+    setlocal previewwindow ro nomodifiable nomodified filetype=output
+    " back into the original window
+    "winc p
+endfunction
+
+
+" python.vim
+" (Enhanced version of the python syntax highlighting script)
+"
+Plugin 'vim-scripts/python.vim--Vasiliev'
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+
+" pep8-indent for python
+"
+Plugin 'hynek/vim-python-pep8-indent.git'
+
+" syntastic
+"
+Plugin 'scrooloose/syntastic'
+" python syntax checking: flake8 (http://pypi.python.org/pypi/flake8, use 'sudo pip install flake8' to install)
+" ignore E501 line too long
+" ignore W391 blank line at end of file
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,W391'
+let g:syntastic_java_javac_config_file_enabled=1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_no_default_include_dirs = 1
+let g:syntastic_cpp_auto_refresh_includes = 1
+
+" jedi-vim
+" (for python auto-completion)
+" (replaced by YCM)
+"
+"Plugin 'davidhalter/jedi-vim'
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#popup_select_first = 0
+"let g:jedi#use_tabs_not_buffers = 1
+

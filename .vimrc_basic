@@ -1,0 +1,223 @@
+"
+" vimrc, basic part
+"
+
+"
+" basic
+"
+scriptencoding utf-8
+
+set nocompatible
+set history=50
+set showcmd
+set nomodeline      "ignore mode implication
+set backspace=indent,eol,start      " allow backspacing over everything in insert mode
+set textwidth=0
+
+autocmd! bufwritepost .vimrc source ~/.vimrc " auto reload vimrc when editing it
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
+
+
+"
+" encoding / format
+"
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  set fileencodings=utf-8,big5,cp950,gbk,cp936,iso-2022-jp,sjis,euc-jp,japan,euc-kr,ucs-bom,utf-bom,latin1,iso8859-1
+  set fileencoding=utf-8
+else
+  set enc=taiwan
+  set fileencoding=taiwan
+endif
+set fileformats=unix,dos,mac    "read variant
+set fileformat=unix             "write unix
+
+
+"
+" indent
+"
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab       "use space instead of tab
+set autoindent
+set smartindent
+
+filetype on
+filetype indent on
+filetype plugin on
+autocmd FileType Makefile setlocal noexpandtab    "disable tab replacement on Makefile
+
+
+"
+" folding
+"
+set foldmethod=indent
+set foldlevel=3
+set foldnestmax=3
+
+
+"
+" search
+"
+set incsearch       "highlight while typing
+set hlsearch        "highlight search result
+set ignorecase      "search in case insensitive
+set smartcase       "switch to do case sensitive search when patterns contains upper case chars
+
+
+"
+" theme / color / syntax
+"
+set background=dark
+set t_Co=256
+syntax on
+colorscheme torte
+
+augroup filetypedetect
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
+
+
+"
+" markup
+"
+set number          "line number
+set ruler
+set showmatch       "show bracket matching
+set nocursorline
+set laststatus=2    "always show status 
+set statusline=\ %{HasPaste()}%-20.(%f\ %m%r%h\ %w%)\ 
+set statusline+=\ %<%30(\ \ \ %{hostname()}:%{CurDir()}%)\ 
+set statusline+=%=\ [%c%V,\ %l/%L]\ [%{&ff}/%{&fileencoding}/%Y]
+
+function! CurDir()
+    let curdir = substitute(getcwd(), $HOME, "~", "")
+    return curdir
+endfunction
+
+function! HasPaste()
+    if &paste
+        return '[PASTE]'
+    else
+        return ''
+    endif
+endfunction
+
+
+"
+" sudo write command
+"
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! Wq :execute ':W' | :q
+
+
+"
+" key mappings
+"
+set <F1>=[11~
+set <F2>=[12~
+set <F3>=[13~
+set <F4>=[14~
+let mapleader=","
+
+" for tabs
+noremap <silent> tg gT
+
+" for splits
+noremap <silent> <C-J> <C-W>j
+noremap <silent> <C-K> <C-W>k
+noremap <silent> <c-h> <c-w>h
+noremap <silent> <c-l> <c-w>l
+noremap <silent> <F6> <c-w>w
+inoremap <silent> <F6> <c-o><c-w>w
+inoremap <silent> <c-w> <c-o><c-w>
+
+" search next/previous
+set <s-F3>=[25~
+noremap <F3> n
+noremap <s-F3> N
+inoremap <F3> <c-o>n
+inoremap <s-F3> <c-o>N
+noremap <F4> :set hls!<BAR>set hls?<CR>
+inoremap <F4> <c-o>:set hls!<BAR>set hls?<CR>
+
+" allow multiple indentation/deindentation in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" line numbers show/hide and normal/relative
+" (function is in plugin/line_number.vim)
+noremap <silent> <F2> :call ToggleLineNumbers()<CR>
+nnoremap <silent><buffer> <leader>n :call ToggleRelative()<CR>
+
+" paste mode
+set pastetoggle=<F2>
+
+" help
+nnoremap <silent> <F1> :call Help()<CR>
+inoremap <silent> <F1> <Esc><F1>
+autocmd FileType help noremap <buffer> q :close<CR>
+
+let g:last_help_keyword = ''
+function! Help()
+  echo match(expand("<cWORD>"), g:last_help_keyword)
+  if &buftype=="help" && match(expand("<cWORD>"), g:last_help_keyword)>0
+    bw
+  else
+    try
+      let g:last_help_keyword=expand("<cWORD>")
+      exec "help ".g:last_help_keyword
+    catch /:E149:\|:E661:/
+      " E149 no help for <subject>
+      " E661 no <language> help for <subject>
+      let g:last_help_keyword=expand("<cword>")
+      exec "help ".expand("<cword>")
+    endtry
+  endif
+endfunc
+
+
+"
+" set screen title
+"
+set titlestring=%t%(\ %M%)
+"if &term == "screen" || &term == "screen-bce"
+if match($TERM, "screen") != -1
+    set t_ts=k
+    set t_fs=\
+    "set term=xterm-256color
+    let g:GNU_Screen_used = 1
+    set title
+elseif match(&term, "xterm") != -1
+    set title
+endif
+
+
+"
+" for trailing whitespaces
+"
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+set list  " show trailing whitespace
+set listchars=tab:▸\ ,trail:▫
+
+nnoremap <silent> <leader>ts :call TrimWhiteSpace()<cr>
+

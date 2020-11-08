@@ -1,0 +1,28 @@
+"
+" vimrc, YCM plugin
+"
+
+" YouCompleteMe
+" Powerful but complicated plugin.
+" Read document carefully before enable it.
+" ( https://github.com/ycm-core/YouCompleteMe#the-gycm-clangd-args )
+"
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 0
+let g:ycm_error_symbol = 'e>'
+let g:ycm_warning_symbol = 'w>'
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
+let g:ycm_always_populate_location_list = 1
+nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
+inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
+nnoremap <F12> :YcmCompleter GoTo<CR>
+nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>h <plug>(YCMHover)
+nnoremap <leader>l :lopen<CR>
+nnoremap ]e :lnext<CR>
+nnoremap [e :lprev<CR>
+

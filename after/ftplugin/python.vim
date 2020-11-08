@@ -1,7 +1,7 @@
 "reference:
 "http://vim.wikia.com/wiki/Automatically_add_Python_paths_to_Vim_path
 
-python << EOF
+python3 << EOF
 import os
 import sys
 import vim

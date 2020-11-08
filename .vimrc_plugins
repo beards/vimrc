@@ -1,0 +1,66 @@
+"
+" vimrc, common plugins
+"
+
+" using vundle for management
+"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Plugin 'gmarik/vundle.git'
+
+" easy motion
+"
+Plugin 'Lokaltog/vim-easymotion.git'
+
+" SearchComplete
+"
+Plugin 'SearchComplete'
+
+" MultipleSearch
+"
+" (default mapping: <leader>* to highlight current word
+"  commands: :Search , :SearchReset , :SearchReinit)
+Plugin 'MultipleSearch'
+
+" ctrlp
+"
+" search for files
+Plugin 'kien/ctrlp.vim'
+
+" Nerd Tree
+"
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+nnoremap <silent> <F10> :NERDTreeMirrorToggle<CR>
+inoremap <silent> <F10> <c-o>:NERDTreeMirrorToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\~$[[file]]', '\.pyc$[[file]]', '\.swp$[[file]]', '\.git$[[dir]]', '\.class[[file]]']
+let g:nerdtree_tabs_open_on_gui_startup=0
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nnoremap <leader>f :NERDTreeFind<CR>
+
+" ack
+"
+" (require ack-grep: http://betterthangrep.com/
+"  use 'sudo apt-get install ack-grep' to install)
+Plugin 'mileszs/ack.vim'
+nnoremap <silent> <leader>F :Ack!<CR>
+
+" vim-indent-guides
+"
+" (default shortcur: <leader>ig
+Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 0
+"let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 1
+
+
+" vim-gitgutter
+"
+Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 0
+nnoremap <silent> <F8> :GitGutterToggle<CR>
+nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
+nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
+
