@@ -14,4 +14,11 @@ autocmd FileType go setlocal noexpandtab    "golang prefer to use tab
 " Good on nevigation, bad on auto-completion
 "
 Plugin 'fatih/vim-go'
+let g:go_def_mode='gopls'
+let g:go_code_completion_enabled = 1
+let g:go_def_reuse_buffer = 1
+autocmd FileType go nnoremap <buffer><silent> gi :GoImplements<CR>
+autocmd FileType go nnoremap <buffer><silent> gc :GoCallees<CR>
+autocmd FileType go nnoremap <buffer><silent> gr :GoReferrers<CR>
+autocmd FileType go nnoremap <buffer><silent> <F11> :GoDecls<CR>
 
