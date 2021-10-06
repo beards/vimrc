@@ -92,15 +92,6 @@ augroup END
 "
 " markup
 "
-set number          "line number
-set ruler
-set showmatch       "show bracket matching
-set nocursorline
-set laststatus=2    "always show status 
-set statusline=\ %{HasPaste()}%-20.(%f\ %m%r%h\ %w%)\ 
-set statusline+=\ %<%30(\ \ \ %{hostname()}:%{CurDir()}%)\ 
-set statusline+=%=\ [%c%V,\ %l/%L]\ [%{&ff}/%{&fileencoding}/%Y]
-
 function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "")
     return curdir
@@ -114,6 +105,18 @@ function! HasPaste()
     endif
 endfunction
 
+set number          "line number
+set ruler
+set showmatch       "show bracket matching
+set nocursorline
+set laststatus=2    "always show status
+set statusline=\ %{HasPaste()}%-20.(%f\ %m%r%h\ %w%)\ 
+set statusline+=\ %<%30(\ \ \ %{hostname()}:%{CurDir()}%)\ 
+set statusline+=%=\ [%c%V,\ %l/%L]\ [%{&ff}/%{&fileencoding}/%Y]
+
+" let new split be opened at right or below
+set splitright
+set splitbelow
 
 "
 " sudo write command
