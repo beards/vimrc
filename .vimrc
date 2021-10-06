@@ -12,3 +12,15 @@ source ~/.vim/.vimrc_plugins
 "source ~/.vim/.vimrc_python
 "source ~/.vim/.vimrc_golang
 
+
+"
+" Function to source only if file exists
+"
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+
+call SourceIfExists("~/.vimrc_local")
+
