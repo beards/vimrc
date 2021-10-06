@@ -18,7 +18,7 @@ let g:ycm_goto_buffer_command = 'split-or-existing-window'
 let g:ycm_always_populate_location_list = 1
 nnoremap <silent> <F9> :YcmForceCompileAndDiagnostics<CR>
 inoremap <silent> <F9> <c-o>:YcmForceCompileAndDiagnostics<CR>
-nnoremap <F12> :YcmCompleter GoTo<CR>
+nnoremap <F12> :tab YcmCompleter GoTo<CR>
 nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gi :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>h <plug>(YCMHover)
