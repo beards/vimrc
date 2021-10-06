@@ -159,9 +159,31 @@ inoremap <F4> <c-o>:set hls!<BAR>set hls?<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" whitespace chars
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+set list  " show trailing whitespace
+set listchars=tab:▸\ ,trail:▫
+
+let s:show_whitespace_indicator = 1
+function! ToggleWhiteSpaceIndicator()
+    if (s:show_whitespace_indicator == 1)
+        set nolist
+        set listchars&
+        let s:show_whitespace_indicator = 0
+    else
+        set list
+        set listchars=tab:▸\ ,trail:▫
+        let s:show_whitespace_indicator = 1
+    endif
+endfunc
+
 " line numbers show/hide and normal/relative
 " (function is in plugin/line_number.vim)
-noremap <silent> <F2> :call ToggleLineNumbers()<CR>
+noremap <silent> <F2> :call ToggleLineNumbers()<CR>:call ToggleWhiteSpaceIndicator()<CR>
 nnoremap <silent><buffer> <leader>n :call ToggleRelative()<CR>
 
 " paste mode
@@ -213,14 +235,6 @@ endif
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
-set list  " show trailing whitespace
-set listchars=tab:▸\ ,trail:▫
 
 nnoremap <silent> <leader>ts :call TrimWhiteSpace()<cr>
 
