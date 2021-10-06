@@ -189,6 +189,9 @@ nnoremap <silent><buffer> <leader>n :call ToggleRelative()<CR>
 " paste mode
 set pastetoggle=<F2>
 
+" easily quit quickfix window
+autocmd FileType qf noremap <silent><buffer> q :q<CR>
+
 " help
 nnoremap <silent> <F1> :call Help()<CR>
 inoremap <silent> <F1> <Esc><F1>
