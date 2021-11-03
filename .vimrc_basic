@@ -57,6 +57,7 @@ filetype on
 filetype indent on
 filetype plugin on
 autocmd FileType Makefile setlocal noexpandtab    "disable tab replacement on Makefile
+autocmd FileType proto setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 "
