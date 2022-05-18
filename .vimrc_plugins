@@ -64,3 +64,8 @@ nnoremap <silent> <F8> :GitGutterToggle<CR>
 nnoremap <silent> <leader>h :GitGutterNextHunk<CR>
 nnoremap <silent> <leader>H :GitGutterPrevHunk<CR>
 
+" git-blame
+"
+Plugin 'zivyangll/git-blame.vim'
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+
