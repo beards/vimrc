@@ -24,6 +24,8 @@ autocmd BufReadPost *
   \   exe "normal g`\"" |
   \ endif
 
+" Open a new tab (or switch to already opened tab) when jump from quickfix window
+:set switchbuf+=usetab,newtab
 
 "
 " encoding / format
